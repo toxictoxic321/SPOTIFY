@@ -1,0 +1,763 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent body scroll if main-layout handles it */
+}
+
+/* Universal box-sizing for consistent layout */
+* {
+    box-sizing: border-box;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px; /* Explicit height for easier layout calculations */
+    background-color: #000; /* Solid black background */
+    z-index: 1000; /* Ensures navbar stays on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.svg,
+.svg2 {
+    height: 35px;
+}
+
+.svg2 {
+    background-color: rgba(128, 128, 128, 0.449);
+    border-radius: 50px;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+
+.svg:hover,
+.svg2:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.svg3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #333;
+    padding: 8px 12px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.svginstall4 {
+    height: 25px;
+}
+
+.searchlogo {
+    width: 20px;
+    height: 30px;
+}
+
+.searchbar {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 350px;
+    background-color: #333;
+    color: white;
+    padding: 0; /* Remove default input padding */
+}
+
+/* Buttons in Navbar */
+.buttons {
+    background-color: transparent;
+    color: #bbb;
+    border: none;
+    font-size: large;
+    transition: color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    padding: 8px 12px; /* Add some padding for better click area */
+}
+
+.loginbut {
+    background-color: white;
+    border-radius: 50px;
+    color: black;
+    height: 40px; /* Adjusted height for better fit */
+    width: 90px; /* Adjusted width */
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.buttons:hover {
+    cursor: pointer;
+    color: white;
+    transform: scale(1.05); /* Slightly less aggressive hover */
+}
+
+.loginbut:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.line {
+    width: 1px;
+    height: 30px;
+    background-color: white;
+    margin: 0 5px;
+}
+
+.rightnavbar {
+    margin-left: auto; /* Pushes this div to the far right */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Main Layout Container */
+.main-layout {
+    display: flex;
+    margin-top: 60px; /* Pushes content below the fixed navbar */
+    height: calc(100vh - 60px); /* Fills the remaining viewport height */
+    padding: 10px; /* Padding around the left and main sections */
+    gap: 10px; /* Space between left and main sections */
+}
+
+/* Left Sidebar Section */
+.leftsection {
+    background-color: #121212; /* Darker background for Spotify feel */
+    color: white;
+    width: 300px; /* Fixed width for sidebar */
+    min-width: 250px; /* Minimum width for responsiveness */
+    max-width: 400px; /* Maximum width for responsiveness */
+    border-radius: 8px; /* Softer rounded corners */
+    padding: 15px; /* Padding inside the section */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    gap: 15px; /* Space between header and content */
+    flex-shrink: 0; /* Prevent shrinking below min-width */
+}
+
+/* Header within Left Section */
+.library-header {
+    display: flex;
+    justify-content: space-between; /* Pushes items to ends */
+    align-items: center;
+    padding-bottom: 10px; /* Space below the header */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.library-header h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0; /* Remove default margin */
+}
+
+/* Plus Button Styling */
+.add-button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 1.5em; /* Larger plus sign */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Make it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    font-weight: bold;
+    padding-bottom: 2px; /* Adjust vertical alignment of '+' */
+}
+
+.add-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Example Library Content */
+.library-content {
+    background-color: #282828;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.library-content p {
+    margin: 0;
+}
+
+.create-playlist-button {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start; /* Align button to the start of the flex container */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.create-playlist-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1; /* Takes up remaining space */
+    background-color: #121212; /* Same background as left section for cohesion */
+    border-radius: 8px;
+    padding: 20px;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.main-content h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.main-content p {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.card {
+    background-color: #282828;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.card:hover {
+    background-color: #3a3a3a;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.card h4 {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 0.85em;
+    color: #bbb;
+    margin: 0;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .searchbar {
+        width: 250px;
+    }
+
+    .rightnavbar {
+        gap: 10px;
+    }
+
+    .buttons {
+        font-size: medium;
+    }
+
+    .loginbut {
+        width: 80px;
+        height: 35px;
+        font-size: x-small;
+    }
+
+    .leftsection {
+        width: 250px; /* Slightly smaller sidebar */
+        min-width: 200px;
+    }
+
+    .main-content h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+        height: auto; /* Allow navbar height to adjust when wrapping */
+    }
+
+    .svg, .svg2 {
+        height: 30px;
+    }
+
+    .searchbar {
+        width: 150px;
+        font-size: 12px;
+    }
+
+    .svg3 {
+        padding: 6px 10px;
+    }
+
+    .searchlogo {
+        width: 18px;
+        height: 25px;
+    }
+
+    .rightnavbar {
+        margin-left: 0; /* Remove auto margin when wrapping */
+        width: 100%; /* Take full width when wrapped */
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .buttons {
+        font-size: small;
+        padding: 5px 10px;
+    }
+
+    .loginbut {
+        height: 30px;
+        width: 70px;
+        font-size: xx-small;
+    }
+
+    .line {
+        height: 20px;
+    }
+
+    .svginstall4 {
+        height: 20px;
+    }
+
+    .main-layout {
+        flex-direction: column; /* Stack left section and main content vertically */
+        height: auto; /* Allow height to adjust */
+        margin-top: 120px; /* Adjust for wrapped navbar */
+        padding: 5px;
+    }
+
+    .leftsection {
+        width: auto; /* Allow left section to take full width */
+        margin: 5px; /* Uniform margin */
+        max-width: none; /* Remove max-width constraint */
+        padding: 10px;
+    }
+
+    .main-content {
+        margin: 5px; /* Uniform margin */
+        padding: 15px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller cards */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px;
+    }
+
+    .svg, .svg2 {
+        height: 25px;
+    }
+
+    .searchbar {
+        width: 100px;
+    }
+
+    .buttons {
+        font-size: x-small;
+    }
+
+    .loginbut {
+        height: 25px;
+        width: 60px;
+    }
+
+    .rightnavbar {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        align-items: stretch; /* Stretch buttons to full width */
+        gap: 5px;
+    }
+
+    .line, .svginstall4 {
+        display: none; /* Hide separator and install icon */
+    }
+
+    .main-layout {
+        margin-top: 150px; /* Further adjust for very small screen navbar */
+    }
+}
+
+
+
+.anchors{
+    color: white;
+    text-decoration: none;
+font-size: 20px;
+}
+
+.anchors:hover{
+    text-decoration:underline;
+    cursor: pointer;
+}
+
+.anchortags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: auto;
+}
+
+
+
+
+
+/* --- Crucial Layout Adjustments for the Player Bar --- */
+/* Adjust main-layout height to make space for the fixed player bar */
+
+
+/* Add padding to the body for smaller screens when main-layout stacks */
+@media (max-width: 768px) {
+    .main-layout {
+        padding-bottom: 100px; /* Space for the player bar when layout is column */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-layout {
+        padding-bottom: 120px; /* More padding for player bar on very small screens */
+    }
+}
+
+
+/* --- Song Card Specific Styling --- */
+.card {
+    position: relative; /* Needed for absolute positioning of play button */
+    overflow: hidden; /* Hide anything overflowing, like initial play button */
+}
+
+/* Play Button on Cards */
+.card .play-button {
+    position: absolute;
+    bottom: 15px; /* Adjust as needed */
+    right: 15px; /* Adjust as needed */
+    background-color: #1DB954; /* Spotify green */
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white; /* Icon color */
+}
+
+.card:hover .play-button {
+    opacity: 1; /* Fade in on hover */
+    transform: translateY(0); /* Slide up */
+}
+
+.card .play-button svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor; /* Use button's color for SVG */
+}
+
+
+/* --- Now Playing Bar Styling --- */
+.now-playing-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px; /* Height of the player bar */
+    background-color: #181818; /* Darker background for player */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1001; /* Above navbar */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Shadow above */
+    gap: 20px;
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+    width: 250px; /* Fixed width for song info */
+}
+
+.song-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.song-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-title {
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+    font-size: 0.85em;
+    color: #a7a7a7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-controls {
+    flex-grow: 1; /* Takes up most of the central space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    max-width: 600px; /* Limit player width */
+}
+
+.control-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ease;
+}
+
+.control-button:hover {
+    transform: scale(1.1);
+}
+
+.control-button svg {
+    width: 35px;
+    height: 35px;
+    fill: currentColor;
+}
+
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    font-size: 0.8em;
+    color: #a7a7a7;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #535353;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    width: 0%; /* Initial width */
+    background-color: #1DB954; /* Spotify green */
+    border-radius: 2px;
+}
+
+.time {
+    min-width: 30px; /* Ensure time display doesn't jump */
+    text-align: center;
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    width: 150px; /* Fixed width for volume */
+}
+
+#volume-slider {
+    width: 100px;
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    height: 4px;
+    background: #535353;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#volume-slider::-webkit-slider-thumb:hover {
+    background: #1DB954;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#volume-slider::-moz-range-thumb:hover {
+    background: #1DB954;
+}
+
+#volume-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #a7a7a7;
+}
+
+
+/* --- Responsive Adjustments for New Elements --- */
+@media (max-width: 1024px) {
+    .now-playing-bar {
+        padding: 0 15px;
+        gap: 15px;
+    }
+
+    .song-info {
+        width: 200px;
+    }
+
+    .player-controls {
+        max-width: 450px;
+    }
+
+    .volume-controls {
+        width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .now-playing-bar {
+        flex-direction: column; /* Stack elements vertically */
+        height: auto; /* Adjust height based on content */
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .song-info, .player-controls, .volume-controls {
+        width: 100%; /* Take full width */
+        justify-content: center; /* Center content */
+    }
+
+    .song-info {
+        flex-direction: column; /* Stack image and details */
+        text-align: center;
+    }
+
+    .song-details {
+        align-items: center;
+    }
+
+    .player-controls {
+        order: -1; /* Move controls to the top of the bar */
+    }
+
+    .progress-bar-container {
+        font-size: 0.7em;
+    }
+
+    #volume-slider {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .now-playing-bar {
+        padding: 8px;
+    }
+
+    .song-info img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .song-title {
+        font-size: 0.9em;
+    }
+
+    .song-artist {
+        font-size: 0.75em;
+    }
+
+    .control-button svg {
+        width: 30px;
+        height: 30px;
+    }
+}
