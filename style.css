@@ -5,7 +5,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden; /* Prevent body scroll if main-layout handles it */
+    /* Remove 'overflow: hidden;' or change to 'overflow-y: auto;' */
+    /* overflow-y: auto; */ /* This would allow vertical scrolling */
+    /* You can simply remove the line if no specific overflow behavior is desired for the body */
 }
 
 /* Universal box-sizing for consistent layout */
